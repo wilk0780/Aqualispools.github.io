@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aqualis Pools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #002055;
+    }
+
+    header {
+      background-image: url("pool1.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    header img {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      background-color: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      color: #002055;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    form button {
+      background-color: #0077cc;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Aqualis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
+    <img src="logo.png" alt="Aqualis Pools Logo" />
+    <h1>Clearly Different.</h1>
+    <p>Bring the vacation home.</p>
+  </header>
+
+  <section id="about">
+    <h2>About Aqualis</h2>
+    <p>
+      Aqualis Pools was founded with one goal — to build better pools, for better people, in better ways. 
+      We specialize in clean, precise installs with a high-end experience from day one. We don’t just install pools — 
+      we install pride.
+    </p>
+    <img src="pool2.jpg" alt="Vinyl Pool by Aqualis" />
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Want a quote or have a question? We’d love to hear from you.</p>
+    <form action="mailto:kyle@aqualispools.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Aqualis Pools. All rights reserved.
+  </footer>
+
+</body>
+</html>
