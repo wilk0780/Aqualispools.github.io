@@ -143,5 +143,17 @@
   <p class="launch-offer">
     
   </p>
+  <a href="#" onclick="enterPassword()">Client Access</a>
+
+<script>
+function enterPassword() {
+  const pass = prompt("Enter access password:");
+  if (pass === "clearly") {
+    window.location.href = "/clients/";
+  } else {
+    alert("Incorrect password.");
+  }
+}
+</script>
 </body>
 </html>
