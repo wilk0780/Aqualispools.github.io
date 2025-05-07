@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aqualis Quote Builder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #fff;
+      background: url('https://aqualispools.com/background.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
+    }
+    .overlay {
+      background: rgba(0, 40, 60, 0.6);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo img {
+      max-height: 70px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+    }
+    .button-grid a {
+      display: block;
+      text-align: center;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+      border-radius: 8px;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .button-grid a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1em;
+    }
+    .quote-box h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+      color: #fff;
+    }
+    .quote-box div {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="logo">
+      <img src="https://aqualispools.com/logo.png" alt="Aqualis Pools Logo">
+    </div>
+    <h1>Customize Your Pool Package</h1>
+
+    <div class="button-grid">
+      <a href="coping.html">Choose Coping</a>
+      <a href="corner.html">Choose Corner Radius</a>
+      <a href="liner.html">Choose Liner</a>
+      <a href="stairs.html">Choose Stair Placement</a>
+    </div>
+
+    <div class="quote-box">
+      <h2>Your Current Selections</h2>
+      <div><strong>Coping:</strong> <span id="copingChoice">Not selected</span></div>
+      <div><strong>Corner Radius:</strong> <span id="cornerChoice">Not selected</span></div>
+      <div><strong>Liner:</strong> <span id="linerChoice">Not selected</span></div>
+      <div><strong>Stairs:</strong> <span id="stairChoice">Not selected</span></div>
+    </div>
+  </div>
+
+  <script>
+    function loadSelections() {
+      document.getElementById('copingChoice').textContent = localStorage.getItem('coping') || "Not selected";
+      document.getElementById('cornerChoice').textContent = localStorage.getItem('corner') || "Not selected";
+      document.getElementById('linerChoice').textContent = localStorage.getItem('liner') || "Not selected";
+      document.getElementById('stairChoice').textContent = localStorage.getItem('stair') || "Not selected";
+    }
+    window.onload = loadSelections;
+  </script>
+</body>
+</html>
