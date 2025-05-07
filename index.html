@@ -146,14 +146,16 @@
   <a href="#" onclick="enterPassword()">Client Access</a>
 
 <script>
-function enterPassword() {
-  const pass = prompt("Enter access password:");
-  if (pass === "clearly") {
-    window.location.href = "/Clients/Ford/index.html";
-  } else {
-    alert("Incorrect password.");
+  function enterPassword() {
+    const pass = prompt("Enter access password:");
+    if (pass === "ford2025") {
+      window.location.href = "/Clients/Ford/";
+    } else if (pass === "taylor2025") {
+      window.location.href = "/Clients/Taylor/";
+    } else {
+      alert("Incorrect password.");
+    }
   }
-}
 </script>
 </body>
 </html>
