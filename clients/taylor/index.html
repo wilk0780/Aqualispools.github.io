@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travis & Kelly – Aqualis Pools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .logo {
+      margin: 60px auto 20px;
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: #bcdffb;
+    }
+
+    h3 {
+      font-weight: 300;
+      color: #8ecff9;
+      margin-top: 0;
+      margin-bottom: 60px;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      font-size: 1.25em;
+      margin-bottom: 70px;
+    }
+
+    .link-list a {
+      color: #bcdffb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .link-list a:hover {
+      color: #ffffff;
+    }
+
+    .selections {
+      font-size: 1em;
+      color: #b3cde0;
+    }
+
+    .selections div {
+      margin: 10px 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://aqualispools.com/logo.png" alt="Aqualis Pools Logo">
+  </div>
+
+  <h1>Welcome, Travis & Kelly</h1>
+  <h3>Select your custom pool features below</h3>
+
+  <div class="link-list">
+    <a href="size.html">Choose Pool Size</a>
+    <a href="coping.html">Choose Coping</a>
+    <a href="corner.html">Choose Corner Radius</a>
+    <a href="liner.html">Choose Liner</a>
+    <a href="steps.html">Choose Step Type</a>
+  </div>
+
+  <div class="selections">
+    <h3>Your Current Selections</h3>
+    <div><strong>Pool Size:</strong> <span id="sizeChoice">Not selected</span></div>
+    <div><strong>Coping:</strong> <span id="copingChoice">Not selected</span></div>
+    <div><strong>Corner Radius:</strong> <span id="cornerChoice">Not selected</span></div>
+    <div><strong>Liner:</strong> <span id="linerChoice">Not selected</span></div>
+    <div><strong>Step Type:</strong> <span id="stepChoice">Not selected</span></div>
+  </div>
+
+  <script>
+    function loadSelections() {
+      document.getElementById('sizeChoice').textContent = localStorage.getItem('size') || "Not selected";
+      document.getElementById('copingChoice').textContent = localStorage.getItem('coping') || "Not selected";
+      document.getElementById('cornerChoice').textContent = localStorage.getItem('corner') || "Not selected";
+      document.getElementById('linerChoice').textContent = localStorage.getItem('liner') || "Not selected";
+      document.getElementById('stepChoice').textContent = localStorage.getItem('step') || "Not selected";
+    }
+    window.onload = loadSelections;
+  </script>
+</body>
+</html>
