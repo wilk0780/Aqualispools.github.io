@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Coping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://aqualispools.com/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1700px;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.6em;
+      color: #ffffff;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .option {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      max-width: 300px;
+    }
+
+    .option img {
+      width: 100%;
+      height: auto;
+      border: 3px solid transparent;
+      border-radius: 12px;
+      transition: border-color 0.3s ease;
+    }
+
+    .option.selected img {
+      border-color: #8ecff9;
+    }
+
+    .label {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5em;
+      color: #bcdffb;
+      margin-top: 12px;
+    }
+
+    .submit-btn {
+      margin-top: 40px;
+      padding: 14px 32px;
+      background-color: #0e6fa8;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-size: 200vmin;
+        background-position: center;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 30px 20px 20px;
+      }
+
+      .label {
+        font-size: 1.2em;
+      }
+
+      .option {
+        max-width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Select Your Coping</h1>
+  <div class="grid">
+    <div class="option" data-value="Bullnose Coping">
+      <img src="Bullnose.jpg" alt="Bullnose Coping">
+      <div class="label">Bullnose</div>
+    </div>
+    <div class="option" data-value="Flat Coping">
+      <img src="Flat.jpg" alt="Flat Coping">
+      <div class="label">Flat</div>
+    </div>
+  </div>
+  <button class="submit-btn" onclick="saveChoice()">Save Selection</button>
+
+  <script>
+    const storageKey = "coping";
+    let selectedValue = null;
+
+    document.querySelectorAll('.option').forEach(option => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        selectedValue = option.getAttribute('data-value');
+      });
+    });
+
+    function saveChoice() {
+      if (selectedValue) {
+        localStorage.setItem(storageKey, selectedValue);
+        alert('Coping selection saved!');
+        window.history.back();
+      } else {
+        alert('Please select an option.');
+      }
+    }
+  </script>
+</body>
+</html>
