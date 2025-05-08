@@ -139,6 +139,7 @@
         const check = localStorage.getItem(category);
         if (check === value) {
           alert(`${capitalize(category)} selection saved.`);
+window.location.href = "index.html";
         } else {
           alert(`Error: ${capitalize(category)} selection NOT saved.`);
         }
