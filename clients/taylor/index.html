@@ -92,6 +92,8 @@
       <a href="corner.html">Choose Corner Radius</a>
       <a href="liner.html">Choose Liner</a>
       <a href="steps.html">Choose Step Type</a>
+      <a href="heater.html">Choose Heater</a>
+<a href="sanitize.html">Choose Sanitizing Type</a>
     </div>
 
     <div class="selections">
@@ -101,6 +103,8 @@
       <div><strong>Corner Radius:</strong> <span id="cornerChoice">Not selected</span></div>
       <div><strong>Liner:</strong> <span id="linerChoice">Not selected</span></div>
       <div><strong>Step Type:</strong> <span id="stepChoice">Not selected</span></div>
+      <div><strong>Heater:</strong> <span id="heaterChoice">Not selected</span></div>
+<div><strong>Sanitizing Type:</strong> <span id="sanitizeChoice">Not selected</span></div>
     </div>
   </div>
 
@@ -111,6 +115,8 @@
       document.getElementById('cornerChoice').textContent = localStorage.getItem('corner') || "Not selected";
       document.getElementById('linerChoice').textContent = localStorage.getItem('liner') || "Not selected";
       document.getElementById('stepChoice').textContent = localStorage.getItem('step') || "Not selected";
+      document.getElementById('heaterChoice').textContent = localStorage.getItem('heater') || "Not selected";
+document.getElementById('sanitizeChoice').textContent = localStorage.getItem('sanitize') || "Not selected";
     }
     window.onload = loadSelections;
   </script>
