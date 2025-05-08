@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trish – Aqualis Pools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image: url('/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1700px;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 60px 20px 60px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: #bcddfb;
+    }
+
+    h3 {
+      font-weight: 300;
+      color: #8ecff9;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      font-size: 1.25em;
+      margin-bottom: 70px;
+    }
+
+    .link-list a {
+      color: #bcddfb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .link-list a:hover {
+      color: #ffffff;
+    }
+
+    .selections {
+      font-size: 1em;
+      color: #b3cde0;
+    }
+
+    .selections div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-size: 200vmin;
+        background-position: center;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .link-list {
+        font-size: 1em;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Welcome, Trish</h1>
+    <h3>Select your custom liner below</h3>
+
+    <div class="link-list">
+      <a href="liner.html">Choose Liner</a>
+    </div>
+
+    <div class="selections">
+      <h3>Your Current Selection</h3>
+      <div><strong>Liner:</strong> <span id="linerChoice">Not selected</span></div>
+    </div>
+  </div>
+
+  <script>
+    function loadSelections() {
+      document.getElementById('linerChoice').textContent = localStorage.getItem('liner') || "Not selected";
+    }
+    window.onload = loadSelections;
+  </script>
+</body>
+</html>
