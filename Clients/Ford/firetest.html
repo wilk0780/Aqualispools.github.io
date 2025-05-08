@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firestore Test</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+  <style>
+    body { background: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 50px; }
+    button { padding: 10px 20px; font-size: 18px; background: #00bfff; border: none; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h1>Firestore Test</h1>
+<button onclick="saveTest()">Save Test Data</button>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUIE0hNmmoZf4UbmXKZs12erAx3mCZXyw",
+    authDomain: "aqualis-client-portal.firebaseapp.com",
+    projectId: "aqualis-client-portal",
+    storageBucket: "aqualis-client-portal.firebasestorage.app",
+    messagingSenderId: "909648373371",
+    appId: "1:909648373371:web:252c848657231637af24de"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  function saveTest() {
+    db.collection("selections").add({
+      client: "Test Client",
+      category: "test",
+      selection: "It worked!",
+      timestamp: new Date()
+    }).then(() => {
+      alert("Success! Firestore is live.");
+    }).catch((error) => {
+      console.error("Error saving:", error);
+      alert("Failed. See console for error.");
+    });
+  }
+</script>
+
+</body>
+</html>
