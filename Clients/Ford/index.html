@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jeremy & Christi – Aqualis Pools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image: url('/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1700px;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: #bcddfb;
+    }
+
+    h3 {
+      font-weight: 300;
+      color: #8ecff9;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      font-size: 1.25em;
+      margin-bottom: 70px;
+    }
+
+    .link-list a {
+      color: #bcddfb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .link-list a:hover {
+      color: #ffffff;
+    }
+
+    .selections {
+      font-size: 1em;
+      color: #b3cde0;
+    }
+
+    .selections div {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-size: 200vmin;
+        background-position: center;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .link-list {
+        font-size: 1em;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Firebase Setup -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUIE0hNmmoZf4UbmXKZs12erAx3mCZXyw",
+    authDomain: "aqualis-client-portal.firebaseapp.com",
+    projectId: "aqualis-client-portal",
+    storageBucket: "aqualis-client-portal.firebasestorage.app",
+    messagingSenderId: "909648373371",
+    appId: "1:909648373371:web:252c848657231637af24de"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+<div class="overlay">
+  <h1>Welcome, Jeremy & Christi</h1>
+  <h3>Select your custom pool features below</h3>
+
+  <div class="link-list">
+    <a href="coping.html">Choose Coping</a>
+    <a href="corner.html">Choose Corner Radius</a>
+    <a href="liner.html">Choose Liner</a>
+    <a href="steps.html">Choose Stair Placement</a>
+  </div>
+
+  <div class="selections">
+    <h3>Your Current Selections</h3>
+    <div><strong>Coping:</strong> <span id="copingChoice">Loading...</span></div>
+    <div><strong>Corner Radius:</strong> <span id="cornerChoice">Loading...</span></div>
+    <div><strong>Liner:</strong> <span id="linerChoice">Loading...</span></div>
+    <div><strong>Stair Placement:</strong> <span id="stepChoice">Loading...</span></div>
+  </div>
+</div>
+
+<script>
+  async function loadSelections() {
+    const snapshot = await db.collection("selections")
+      .where("client", "==", "Jeremy & Christi")
+      .get();
+
+    const data = {};
+    snapshot.forEach(doc => {
+      const entry = doc.data();
+      data[entry.category.toLowerCase()] = entry.selection;
+    });
+
+    document.getElementById('copingChoice').textContent = data.coping || "Not selected";
+    document.getElementById('cornerChoice').textContent = data.corner || "Not selected";
+    document.getElementById('linerChoice').textContent = data.liner || "Not selected";
+    document.getElementById('stepChoice').textContent = data.step || "Not selected";
+  }
+
+  window.onload = loadSelections;
+</script>
+
+</body>
+</html>
