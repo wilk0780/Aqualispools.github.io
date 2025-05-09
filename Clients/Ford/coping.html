@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Coping – Ford</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image: url('/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1700px;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      margin-bottom: 30px;
+      font-weight: normal;
+      color: #bcddfb;
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .image-grid img {
+      width: 250px;
+      height: auto;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .image-grid img.selected {
+      border-color: #00bfff;
+    }
+
+    .label {
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+      margin-top: 10px;
+      color: #c9e4ff;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      background-color: #00bfff;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background-color: #008fc3;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-size: 200vmin;
+        background-position: center;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .image-grid img {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="overlay">
+  <h1>Select Your Coping</h1>
+  <div class="image-grid" id="image-grid">
+    <div>
+      <img src="/selections/coping/bullnose.png" alt="bullnose" onclick="selectImage(this, 'Bullnose')">
+      <div class="label">Bullnose</div>
+    </div>
+    <div>
+      <img src="/selections/coping/bullnose_grey-395.png" alt="bullnose_grey-395" onclick="selectImage(this, 'Bullnose Grey $395')">
+      <div class="label">Bullnose Grey $395</div>
+    </div>
+    <div>
+      <img src="/selections/coping/flat.png" alt="flat" onclick="selectImage(this, 'Flat')">
+      <div class="label">Flat</div>
+    </div>
+    <div>
+      <img src="/selections/coping/flat_grey-295.png" alt="flat_grey-295" onclick="selectImage(this, 'Flat Grey $295')">
+      <div class="label">Flat Grey $295</div>
+    </div>
+  </div>
+  <button id="saveBtn">Save Selection</button>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUIE0hNmmoZf4UbmXKZs12erAx3mCZXyw",
+    authDomain: "aqualis-client-portal.firebaseapp.com",
+    databaseURL: "https://aqualis-client-portal-default-rtdb.firebaseio.com",
+    projectId: "aqualis-client-portal",
+    storageBucket: "aqualis-client-portal.appspot.com",
+    messagingSenderId: "909648373371",
+    appId: "1:909648373371:web:252c848657231637af24de"
+  };
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  let selected = "";
+
+  function selectImage(img, label) {
+    document.querySelectorAll(".image-grid img").forEach(i => i.classList.remove("selected"));
+    img.classList.add("selected");
+    selected = label;
+  }
+
+  document.getElementById("saveBtn").onclick = async () => {
+    if (!selected) {
+      alert("Please select an option first.");
+      return;
+    }
+
+    try {
+      await db.ref("selections/ford/coping").set(selected);
+      alert("Saved! Redirecting...");
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  };
+</script>
+</body>
+</html>
