@@ -133,9 +133,13 @@
       }
 
       try {
-        await db.ref("selections/ford/coping").set(selectedOption);
-        alert("Saved: " + selectedOption);
-        window.location.href = "index.html?refresh=" + new Date().getTime();
+        await db.ref("selections/ford/coping").set({
+  client: "Ford",
+  category: "Coping",
+  selection: selectedOption,
+  timestamp: new Date().toISOString(),
+});
+alert("Saved! Selection saved. Ready to redirect...");
       } catch (error) {
         alert("ERROR: " + error.message);
       }
