@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Firestore Test</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Firestore Test</h1>
+  <button onclick="saveTest()">Save Test Data</button>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDUIE0hNmmoZf4UbmXKZs12erAx3mCZXyw",
+      authDomain: "aqualis-client-portal.firebaseapp.com",
+      projectId: "aqualis-client-portal",
+      storageBucket: "aqualis-client-portal.firebasestorage.app",
+      messagingSenderId: "909648373371",
+      appId: "1:909648373371:web:252c848657231637af24de"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.saveTest = async function () {
+      try {
+        await addDoc(collection(db, "selections"), {
+          client: "Test Client",
+          category: "test",
+          selection: "It worked!",
+          timestamp: new Date()
+        });
+        alert("Success! Firestore is live.");
+      } catch (error) {
+        alert("ERROR: " + error.message);
+      }
+    };
+  </script>
+</body>
+</html>
