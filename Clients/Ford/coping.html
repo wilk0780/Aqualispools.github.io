@@ -127,20 +127,30 @@
 
     document.getElementById("saveBtn").addEventListener("click", async () => {
   alert("Save button was clicked!");
-      if (!selectedOption) {
-        alert("Please select an option before saving.");
-        return;
-      }
+      <script>
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+    alert("Save button was clicked!");
 
-      try {
-        await db.ref("selections/ford/coping").set({
-  client: "Ford",
-  category: "Coping",
-  selection: selectedOption,
-  timestamp: new Date().toISOString(),
-});
-alert("Saved! Selection saved. Ready to redirect...");
-      } catch (error) {
+    if (!selectedOption) {
+      alert("No selection made.");
+      return;
+    }
+
+    alert("Proceeding to save to Firebase...");
+
+    try {
+      await db.ref("selections/ford/coping").set({
+        client: "Ford",
+        category: "Coping",
+        selection: selectedOption,
+        timestamp: new Date().toISOString(),
+      });
+      alert("Success! Data saved to Firebase.");
+    } catch (error) {
+      alert("ERROR: " + error.message);
+    }
+  });
+</script>
         alert("ERROR: " + error.message);
       }
     });
