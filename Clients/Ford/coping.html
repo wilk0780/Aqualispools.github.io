@@ -140,7 +140,7 @@
         alert("Success! Saved: " + selectedOption);
         window.location.href = "index.html?refresh=" + new Date().getTime();
       } catch (error) {
-        alert("ERROR: " + error.message);
+        alert("ERROR: " + error.message + "\\n" + JSON.stringify(error));
       }
     });
   </script>
