@@ -109,7 +109,7 @@
     try {
       const response = await fetch('/data/selections.json');
       const selections = await response.json();
-      const clientData = selections["Jeremy & Christi"] || {};
+      const clientData = selections["ford"] || {};;
 
       document.getElementById('copingChoice').textContent = clientData.coping || "Not selected";
       document.getElementById('cornerChoice').textContent = clientData.corner || "Not selected";
