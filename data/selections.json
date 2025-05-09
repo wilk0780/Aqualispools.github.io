@@ -1,0 +1,18 @@
+{
+  "ford": {
+    "coping": "",
+    "corner": "",
+    "liner": "",
+    "stair": ""
+  },
+  "taylor": {
+    "pool_size": "",
+    "coping": "",
+    "corner": "",
+    "liner": "",
+    "stair": "",
+    "step_type": "",
+    "heater": "",
+    "sanitizing_system": ""
+  }
+}
