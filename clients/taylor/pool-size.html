@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Pool Size – Aqualis Pools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image: url('https://aqualispools.com/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1700px;
+      background-attachment: fixed;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.6em;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-weight: 300;
+      color: #ecf9ff;
+      margin-top: 0;
+      margin-bottom: 50px;
+    }
+
+    .option-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .option {
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .option img {
+      width: 260px;
+      border: 3px solid transparent;
+      border-radius: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    .option.selected img {
+      border-color: #00f0ff;
+    }
+
+    .option p {
+      margin-top: 10px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    .save-button {
+      font-size: 1.25rem;
+      padding: 12px 30px;
+      color: #000;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .save-button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Choose Your Pool Size</h1>
+    <h3>Click to select the layout that fits your space</h3>
+
+    <div class="option-grid">
+      <div class="option" data-value="12x20">
+        <img src="../../selections/poolsize/12x20.png" alt="12x20">
+        <p>12x20</p>
+      </div>
+      <div class="option" data-value="12x24">
+        <img src="../../selections/poolsize/12x24.png" alt="12x24">
+        <p>12x24</p>
+      </div>
+      <div class="option" data-value="14x24">
+        <img src="../../selections/poolsize/14x24.png" alt="14x24">
+        <p>14x24</p>
+      </div>
+      <div class="option" data-value="14x28">
+        <img src="../../selections/poolsize/14x28.png" alt="14x28">
+        <p>14x28</p>
+      </div>
+      <div class="option" data-value="16x32">
+        <img src="../../selections/poolsize/16x32.png" alt="16x32">
+        <p>16x32</p>
+      </div>
+    </div>
+
+    <button class="save-button" onclick="saveSelection()">Save Selection</button>
+  </div>
+
+  <script>
+    const options = document.querySelectorAll('.option');
+    let selectedValue = null;
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        options.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        selectedValue = option.getAttribute('data-value');
+      });
+    });
+
+    function saveSelection() {
+      if (!selectedValue) return alert('Please select a pool size first.');
+      localStorage.setItem('size', selectedValue);
+      alert('Selection saved!');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
