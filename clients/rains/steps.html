@@ -141,7 +141,7 @@
       .then(data => {
         const record = data.record || {};
         record.rains = record.rains || {};
-        record.taylor.stair = selected;
+        record.rains.stair = selected;
 
         return fetch("https://api.jsonbin.io/v3/b/681df1438a456b79669a5caa", {
           method: "PUT",
