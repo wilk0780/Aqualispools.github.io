@@ -125,7 +125,6 @@
       const data = await response.json();
       const record = data.record.rains || {};
 
-      document.getElementById('sizeChoice').textContent = record.pool_size || "Not selected";
       document.getElementById('copingChoice').textContent = record.coping || "Not selected";
       document.getElementById('cornerChoice').textContent = record.corner || "Not selected";
       document.getElementById('linerChoice').textContent = record.liner || "Not selected";
