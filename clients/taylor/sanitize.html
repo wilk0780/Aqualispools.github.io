@@ -127,8 +127,8 @@
         const full = await getRes.json();
         const record = full.record || {};
 
-        record[clientKey] = record[clientKey] || {};
-        record[clientKey].sanitizing_system = selectedOption;
+        if (!record[clientKey]) record[clientKey] = {};
+record[clientKey].sanitizing_system = selectedOption;
 
         const putRes = await fetch(binUrl, {
           method: "PUT",
