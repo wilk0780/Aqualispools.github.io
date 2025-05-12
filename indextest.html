@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqualis Pools | Vinyl Pool Installation in Western Kentucky</title>
+  <meta name="description" content="Aqualis Pools installs high-quality vinyl liner pools with clean, modern finishes in Paducah and surrounding areas. Clearly Different.">
+  <meta name="keywords" content="Paducah pool installer, vinyl liner pools, pool construction Paducah KY, Western Kentucky pool company">
+  <meta name="author" content="Aqualis Pools">
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #ffffff;
+      background: linear-gradient(-45deg, #000, #111, #222, #111);
+      background-size: 400% 400%;
+      animation: shimmer 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%) repeat;
+      background-size: 200% 200%;
+      animation: shimmerOverlay 6s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes shimmerOverlay {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .logo {
+      max-width: 80%;
+      width: 1000px;
+      height: auto;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+      margin-top: 40px;
+    }
+
+    nav {
+      margin: 30px 0;
+    }
+
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .split {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
+      padding: 60px 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .section {
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .section a {
+      display: block;
+      margin: 25px 0;
+      font-size: 2.2em;
+      font-family: 'Great Vibes', cursive;
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .section a:hover {
+      color: #8ecff9;
+    }
+
+    .client-access {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #bcddfb;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Aqualis Pools Logo" class="logo" />
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html">Get a Quote</a>
+  </nav>
+
+  <div class="split">
+    <div class="section">
+      <a href="quote.html">Installation</a>
+    </div>
+
+    <div class="section">
+      <a href="#">Open Pool</a>
+      <a href="#">Close Pool</a>
+      <a href="#">Maintenance Visit</a>
+      <a href="#">Weekly Service</a>
+    </div>
+  </div>
+
+  <div class="client-access" onclick="enterPassword()">Client Access</div>
+
+  <script>
+    function enterPassword() {
+      const pass = prompt("Enter access password:");
+      if (pass === "ford052025") {
+        window.location.href = "/Clients/Ford/";
+      } else if (pass === "taylor062025") {
+        window.location.href = "/clients/taylor/";
+      } else if (pass === "TrishLiner2025") {
+        window.location.href = "/clients/trish/";
+      } else if (pass === "rains072025") {
+        window.location.href = "/clients/rains/";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+</body>
+</html>
